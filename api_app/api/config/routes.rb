@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post :user_token, to: 'user_token#create'
 
-      resources :posts, only: [:index]
+      resources :posts
     end
   end
 end

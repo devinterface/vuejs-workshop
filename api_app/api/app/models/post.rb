@@ -11,4 +11,12 @@
 #
 
 class Post < ActiveRecord::Base
+  validates :title,
+            :body,
+            :slug,
+            presence: true
+
+  validates :slug,
+            uniqueness: true,
+            if: Proc.new { |x| x.present? }
 end
