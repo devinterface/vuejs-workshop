@@ -1,14 +1,16 @@
 ## Usage
-* gem install bundler
-* bundle install
-* rake db:create
-* rake db:seed
-* rails s
+``` bash
+gem install bundler
+bundle install
+rake db:create
+rake db:seed
+rails s
+```
 
 ### Get a JWT Authentication Token
 To perform **sign_in** you must perform a POST request to **/api/v1/user_token** with body:
 
-```json
+``` json
 {
   "auth": {
     "email": "workshop@devinterface.com",
