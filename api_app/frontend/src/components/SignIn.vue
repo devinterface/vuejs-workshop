@@ -43,7 +43,7 @@ export default {
       })
 
       if (result) {
-        router.push({ name: 'Posts' })
+        router.push({ name: 'PostsIndex' })
       }
     }
   }

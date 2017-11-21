@@ -4,8 +4,8 @@
       b-navbar-toggle(target='nav_collapse')
       b-navbar-brand(href='#') VueJS Workshop
       b-collapse#nav_collapse(is-nav='')
-        b-navbar-nav(v-show='authenticated()')
-          b-nav-item(:to="{ name: 'Posts' }")
+        b-navbar-nav
+          b-nav-item(href="#", :to="{ name: 'PostsIndex' }", v-show='authenticated()') Posts
 
         b-navbar-nav.ml-auto
           b-nav-item-dropdown(right='')
@@ -16,7 +16,7 @@
             b-dropdown-item(href='#', v-show="authenticated()", @click='performSignOut()') Logout
             
 
-    .container-fluid
+    .container
       router-view/
 </template>
 

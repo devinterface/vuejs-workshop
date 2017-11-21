@@ -5,7 +5,11 @@ import Router from 'vue-router'
 import HomeComponent from '@/components/Home'
 import AboutComponent from '@/components/About'
 import SignInComponent from '@/components/SignIn'
-import PostsComponent from '@/components/Posts'
+import PostsComponent from '@/components/posts/Posts'
+import PostsIndexComponent from '@/components/posts/PostsIndex'
+import PostsShowComponent from '@/components/posts/PostsShow'
+import PostsNewComponent from '@/components/posts/PostsNew'
+import PostsEditComponent from '@/components/posts/PostsEdit'
 
 Vue.use(Router)
 
@@ -26,11 +30,32 @@ export default new Router({
       name: 'SignIn',
       component: SignInComponent
     },
+
     {
       path: '/posts',
-      name: 'Posts',
-      component: PostsComponent
+      component: PostsComponent,
+      children: [
+        {
+          path: '',
+          name: 'PostsIndex',
+          component: PostsIndexComponent
+        },
+        {
+          path: 'new',
+          name: 'PostsNew',
+          component: PostsNewComponent
+        },
+        {
+          path: ':id/edit',
+          name: 'PostsEdit',
+          component: PostsEditComponent
+        },
+        {
+          path: ':id',
+          name: 'PostsShow',
+          component: PostsShowComponent
+        }
+      ]
     }
-
   ]
 })
