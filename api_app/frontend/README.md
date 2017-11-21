@@ -12,6 +12,9 @@
 ### Build Setup
 
 ``` bash
+# install node version 8.9.1 (if not installed)
+nvm install 8.9.1
+
 # switch nvm version using .nvmrc file
 nvm use
 
