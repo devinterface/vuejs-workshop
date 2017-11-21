@@ -1,26 +1,21 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: comments
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
-#  title      :string
+#  post_id    :integer          not null
 #  body       :string
-#  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Post < ActiveRecord::Base
-  has_many  :comments
+class Comment < ActiveRecord::Base
+  belongs_to  :post
   belongs_to  :user
 
-  validates :title,
+  validates :user,
+            :post,
             :body,
-            :slug,
             presence: true
-
-  validates :slug,
-            uniqueness: true,
-            if: Proc.new { |x| x.present? }
 end

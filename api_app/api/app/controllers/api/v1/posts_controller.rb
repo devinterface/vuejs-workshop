@@ -11,7 +11,7 @@ module Api
 
       def show
         load_post
-        render json: post, status: 200
+        render json: post, include: [:comments], status: 200
       end
 
       def create
@@ -51,7 +51,9 @@ module Api
       end
 
       def post_params
-        unsafe_params[:post]
+        res = unsafe_params[:post]
+        res[:user_id] = current_user.id
+        res
       end
     end
   end
