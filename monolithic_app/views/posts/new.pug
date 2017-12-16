@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  .container
+    post-new(:post=post)
+      template(slot="title")
+        h1= title

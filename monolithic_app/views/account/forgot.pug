@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  h1= title
+
+  if errors != undefined
+    ul(class="form-errors")
+      each error in errors
+        li= error.msg
+
+  form(id="forgotform" method="POST")
+    input(type="email" name="email" id="email" placeholder=i18n.t('attributes.account.email'))
+    button(type="submit")= i18n.t('forgot_password.submit_label')
